@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import {jsPDF} from "jspdf"
+import ExerciseCard from "./card/ExerciseCard";
+
+function createPDF(){
+    const doc = new jsPDF();
+    doc.text("Hello world!", 50, 50);
+    doc.save("a4.pdf");
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <ExerciseCard/>
+        <button title="Generate PDF" onClick={() => createPDF()}>Generate PFD</button>
     </div>
   );
 }
